@@ -80,6 +80,13 @@ messages = {
                      'Inspect error log for more information.'),
 
     "GINADAP0001E": _("SAN adapter '%(adapter)s' does not exist in the system."
-                      )
+                      ),
+    "GINPOWER001E": _("Failed to retrieve power management profiles: \
+                       Host OS does not support the tuned-adm package."),
+    "GINPOWER002E": _("Failed to retrieve power management profiles: \
+                       Daemon 'tuned-adm' is not active."),
+    "GINPOWER003E": _("Failed to retrieve power management profiles: \
+                       Package 'tuned-adm' is not installed."),
+    "GINPOWER004E": _("Error activating power saving profile %(profile)s."),
 }
 messages.update(kmessages)

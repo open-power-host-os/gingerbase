@@ -26,21 +26,42 @@ class PowerProfilesModel():
     """
     The model class for power saving profiles of the host
     """
+    def __init__(self):
+        self.error = None
+        # Check if running with any distro other than
+        # RHEL/Fedora, where the 'tuned-adm' package exists.
+        # The idea is to check by the existence of 'yum'
+        # to take care of Ubuntu/Debian verification, and then
+        # check yum to see if the package is installed.
+        yum_cmd = ["yum", "--version"]
+        output, err, returncode = run_command(yum_cmd)
+        if not output:
+            self.error = 'GINPOWER001E'
+        else:
+            tuned_cmd = ["tuned-adm", "active"]
+            output, err, returncode = run_command(tuned_cmd)
+            # return code '2' at 'tuned-adm active' means that
+            # the tuned daemon is not active
+            if returncode == 2:
+                self.error = 'GINPOWER002E'
+            elif not output:
+                self.error = 'GINPOWER003E'
+
     def get_list(self):
-        profiles = []
-        tuned_cmd = ["tuned-adm", "list"]
-        output, error, returncode = run_command(tuned_cmd)
-        if returncode != 0:
-            kimchi_log.error('Could not retrieve power profiles, error: %s',
-                             error)
-            raise OperationFailed('Error while retrieving power saving '
-                                  'profiles.')
-        lines_output = output.rstrip("\n").split("\n")
-        for line in lines_output:
-            if line.startswith('-'):
-                line = line.strip("- ")
-                profiles.append(line)
-        return profiles
+        if self.error:
+            kimchi_log.error(self.error)
+            raise OperationFailed(self.error)
+            return None
+        else:
+            profiles = []
+            tuned_cmd = ["tuned-adm", "list"]
+            output, error, returncode = run_command(tuned_cmd)
+            lines_output = output.rstrip("\n").split("\n")
+            for line in lines_output:
+                if line.startswith('-'):
+                    line = line.strip("- ")
+                    profiles.append(line)
+            return profiles
 
 
 class PowerProfileModel():
@@ -72,7 +93,6 @@ class PowerProfileModel():
             output, error, returncode = run_command(tuned_cmd)
             if returncode != 0:
                 kimchi_log.error('Could not activate power profile %s, '
-                                 'error: %s', powerprofile, error)
-                raise OperationFailed('Error while activating power '
-                                      'saving profile %s.', powerprofile)
+                                 'error: %s', profile, error)
+                raise OperationFailed("GINPOWER004E", {'profile': profile})
         return profile
