@@ -4,7 +4,7 @@
 %endif
 
 %define frobisher_release 20
-%define release .3
+%define release .4
 Name:		ginger
 Version:	1.2.1
 Release:	%{?frobisher_release}%{?release}%{?dist}
@@ -23,6 +23,9 @@ Requires:	libuser-python
 Requires:	powerpc-utils
 %endif
 
+Obsoletes:	kimchi-ginger
+Conflicts:	kimchi-ginger
+Provides:	kimchi-ginger
 
 %description
 Ginger is a host management plugin to Kimchi, that provides an
@@ -86,6 +89,9 @@ service kimchid restart
 
 
 %changelog
+* Tue Jul 23 2014 Rodrigo Trujillo <trujillo@linux.vnet.ibm.com> 1.2.1-20.4
+- Added spec tags Obsoletes/Conflicts/Provides to update kimchi-ginger properly
+
 * Tue Jul 15 2014 Paulo Vital  <pvital@linux.vnet.ibm.com> 1.2.1-20.3
 - Created spec file to PowerKVM 2.1.1 (20.3)
 
