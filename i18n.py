@@ -81,6 +81,7 @@ messages = {
 
     "GINADAP0001E": _("SAN adapter '%(adapter)s' does not exist in the system."
                       ),
+
     "GINPOWER001E": _("Failed to retrieve power management profiles: \
                        Host OS does not support the tuned-adm package."),
     "GINPOWER002E": _("Failed to retrieve power management profiles: \
@@ -88,5 +89,11 @@ messages = {
     "GINPOWER003E": _("Failed to retrieve power management profiles: \
                        Package 'tuned-adm' is not installed."),
     "GINPOWER004E": _("Error activating power saving profile %(profile)s."),
+
+    "GINSEP0001E": _("System hostname is a required parameter."),
+    "GINSEP0002E": _("System port number is a required parameter."),
+    "GINSEP0003E": _("SNMP community is a required parameter."),
+    "GINSEP0004E": _("SEP command execution error: '%(cmd)s' - rc: '%(rc)s' \
+                     - error: '%(error)s'.")
 }
 messages.update(kmessages)
