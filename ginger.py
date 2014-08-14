@@ -21,7 +21,7 @@ import json
 import os
 
 from controls import Backup, Firmware, Network, PowerProfiles, SanAdapters
-from controls import Sensors, Users
+from controls import Sensors, Sep, Users
 from i18n import messages
 from kimchi.config import PluginPaths
 from kimchi.control.base import Collection
@@ -45,3 +45,4 @@ class Ginger(Root):
         self.domain = "ginger"
         self.messages = messages
         self.san_adapters = SanAdapters(self.model)
+        self.ibm_sep = Sep(self.model)
