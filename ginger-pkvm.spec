@@ -4,7 +4,7 @@
 %endif
 
 %define frobisher_release 20
-%define release .4
+%define release .8
 Name:		ginger
 Version:	1.2.1
 Release:	%{?frobisher_release}%{?release}%{?dist}
@@ -89,6 +89,15 @@ service kimchid restart
 
 
 %changelog
+* Thu Aug 15 2014 Rodrigo Trujillo <trujillo@linux.vnet.ibm.com> 1.2.1-20.8
+- Update Ginger spec file to Power KVM 2.1.1 - Build 8
+- Add sensors backend functionality - BZ #114422
+- UI: Host sensors data visualization - BZ #114423
+- UI: SEP(ESA) initial setup - BZ #114425
+- IBM Serviceable Event Provider (SEP): Update build files - BZ #114424
+- IBM Serviceable Event Provider (SEP): Backend support - BZ #114424
+- IBM Serviceable Event Provider (SEP): Update configuration files - BZ #114424
+
 * Tue Jul 23 2014 Rodrigo Trujillo <trujillo@linux.vnet.ibm.com> 1.2.1-20.4
 - Added spec tags Obsoletes/Conflicts/Provides to update kimchi-ginger properly
 
