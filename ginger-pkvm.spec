@@ -4,7 +4,7 @@
 %endif
 
 %define frobisher_release 20
-%define release .8
+%define release .9
 Name:		ginger
 Version:	1.2.1
 Release:	%{?frobisher_release}%{?release}%{?dist}
@@ -18,9 +18,12 @@ Requires:	gettext >= 0.17
 Requires:	kimchi = %{version}
 Requires:	tuned
 Requires:	libuser-python
+Requires:	lm_sensors
+Requires:	hddtemp
 
 %ifarch ppc64 ppc
 Requires:	powerpc-utils
+Requires:	serviceable.event.provider
 %endif
 
 Obsoletes:	kimchi-ginger
@@ -89,6 +92,11 @@ service kimchid restart
 
 
 %changelog
+* Thu Aug 21 2014 Rodrigo Trujillo <trujillo@linux.vnet.ibm.com> 1.2.1-20.9
+- Bugfix: Change ginger's text for translation - BZ #115156
+- IBM SEP bug fix: Update _get_subscribe info - BZ #115032
+- Added missing packages requirements related to SEP and SENSORS features
+
 * Thu Aug 15 2014 Rodrigo Trujillo <trujillo@linux.vnet.ibm.com> 1.2.1-20.8
 - Update Ginger spec file to Power KVM 2.1.1 - Build 8
 - Add sensors backend functionality - BZ #114422
