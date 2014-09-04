@@ -4,7 +4,7 @@
 %endif
 
 %define frobisher_release 20
-%define release .9
+%define release .11
 Name:		ginger
 Version:	1.2.1
 Release:	%{?frobisher_release}%{?release}%{?dist}
@@ -92,12 +92,16 @@ service kimchid restart
 
 
 %changelog
+* Thu Sep 04 2014 Paulo Vital <pvital@linux.vnet.ibm.com> 1.2.1-20.11
+- Bugfix Takes time to activate tuned profile in "Power Options" - Bugzilla #115184
+- Update spec file to PowerKVM 2.1.1 (20.11)
+
 * Thu Aug 21 2014 Rodrigo Trujillo <trujillo@linux.vnet.ibm.com> 1.2.1-20.9
 - Bugfix: Change ginger's text for translation - BZ #115156
 - IBM SEP bug fix: Update _get_subscribe info - BZ #115032
 - Added missing packages requirements related to SEP and SENSORS features
 
-* Thu Aug 15 2014 Rodrigo Trujillo <trujillo@linux.vnet.ibm.com> 1.2.1-20.8
+* Fri Aug 15 2014 Rodrigo Trujillo <trujillo@linux.vnet.ibm.com> 1.2.1-20.8
 - Update Ginger spec file to Power KVM 2.1.1 - Build 8
 - Add sensors backend functionality - BZ #114422
 - UI: Host sensors data visualization - BZ #114423
@@ -106,7 +110,7 @@ service kimchid restart
 - IBM Serviceable Event Provider (SEP): Backend support - BZ #114424
 - IBM Serviceable Event Provider (SEP): Update configuration files - BZ #114424
 
-* Tue Jul 23 2014 Rodrigo Trujillo <trujillo@linux.vnet.ibm.com> 1.2.1-20.4
+* Wed Jul 23 2014 Rodrigo Trujillo <trujillo@linux.vnet.ibm.com> 1.2.1-20.4
 - Added spec tags Obsoletes/Conflicts/Provides to update kimchi-ginger properly
 
 * Tue Jul 15 2014 Paulo Vital  <pvital@linux.vnet.ibm.com> 1.2.1-20.3
