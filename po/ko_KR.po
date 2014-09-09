@@ -1,0 +1,373 @@
+# Korean translations for Ginger package.
+# Copyright (C) 2014 IBM, Corp.
+# This file is distributed under the same license as the Ginger package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Ginger 1.2.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-09-09 16:21-0300\n"
+"PO-Revision-Date: 2014-06-22 14:00+0800\n"
+"Last-Translator: Zhou Zheng Sheng <zhshzhou@linux.vnet.ibm.com>\n"
+"Language-Team: Zhou Zheng Sheng <zhshzhou@linux.vnet.ibm.com>\n"
+"Language: ko_KR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Firmware Update"
+msgstr "펌웨어 업데이트"
+
+msgid ""
+"Firmware update is initializing. System will reboot in order to flash the "
+"firmware."
+msgstr ""
+"펌웨어 업데이트를 초기화하는 중입니다. 펌웨어를 깜박이기 위해 시스템이다시 부"
+"팅됩니다."
+
+msgid "Firmware Version: "
+msgstr "펌웨어 버전: "
+
+msgid "Package Path: "
+msgstr "패키지 경로: "
+
+msgid "The absolute path to the firmware rpm."
+msgstr "펌웨어 rpm에 대한 절대 경로입니다."
+
+msgid "Update"
+msgstr "업데이트"
+
+msgid "Configuration Backup"
+msgstr "구성 백업"
+
+msgid "Batch Delete"
+msgstr "삭제 일괄처리"
+
+msgid "New Custom Backup"
+msgstr "새 사용자 정의 백업"
+
+msgid "Generate Default Backup"
+msgstr "기본 백업 생성"
+
+msgid "File"
+msgstr "파일"
+
+msgid "Timestamp"
+msgstr "시간소인"
+
+msgid "Network Configuration"
+msgstr "네트워크 구성"
+
+msgid "Interface"
+msgstr "인터페이스"
+
+msgid "Name"
+msgstr "이름"
+
+msgid "IP"
+msgstr "IP"
+
+msgid "Mask"
+msgstr "마스크"
+
+msgid "DNS"
+msgstr "DNS"
+
+msgid "Gateway"
+msgstr "게이트웨이"
+
+msgid "Power Options"
+msgstr "전원 옵션"
+
+msgid "Activated Option"
+msgstr "활성화한 옵션"
+
+msgid "Selected Option"
+msgstr "선택한 옵션"
+
+msgid "Unselected Option"
+msgstr "선택 취소한 옵션"
+
+msgid "Activate"
+msgstr "활성화"
+
+msgid "SAN Adapters"
+msgstr "SAN 어댑터"
+
+msgid "WWPN"
+msgstr "WWPN"
+
+msgid "WWNN"
+msgstr "WWNN"
+
+msgid "State"
+msgstr "상태"
+
+msgid "In-Use/Max Ports"
+msgstr "사용 중/최대 포트 수"
+
+msgid "Speed"
+msgstr "속도"
+
+msgid "Symbolic Name"
+msgstr "기호 이름"
+
+msgid "Sensor Monitor"
+msgstr "센서 모니터"
+
+msgid "SEP Configuration"
+msgstr "SEP 구성"
+
+msgid "Status:"
+msgstr "상태:"
+
+msgid "Host Name:"
+msgstr "호스트 이름:"
+
+msgid "Port:"
+msgstr "포트:"
+
+msgid "SNMP Community:"
+msgstr "SNMP 커뮤니티:"
+
+msgid "Subscribe"
+msgstr "등록"
+
+msgid "Start"
+msgstr "시작"
+
+msgid "Stop"
+msgstr "중지"
+
+msgid "Description"
+msgstr "설명"
+
+msgid "Path Included"
+msgstr "포함 경로"
+
+msgid "Path Excluded"
+msgstr "제외 경로"
+
+msgid "Preserve the latest"
+msgstr "최근 "
+
+msgid "backups"
+msgstr "개의 백업 유지"
+
+msgid "days of backups"
+msgstr "일의 백업 유지"
+
+msgid "Administration"
+msgstr "관리"
+
+#, python-format
+msgid "Failed to read /etc/resolv.conf because %(reason)s"
+msgstr "%(reason)s 때문에 /etc/resolv.conf를 읽지 못했습니다."
+
+#, python-format
+msgid "Failed to write /etc/resolv.conf because %(reason)s"
+msgstr "%(reason)s 때문에 /etc/resolv.conf를 쓰지 못했습니다."
+
+#, python-format
+msgid "Invalid network parameters. Details: %(err)s"
+msgstr "네트워크 매개변수가 올바르지 않습니다. 세부사항: %(err)s"
+
+#, python-format
+msgid "Unable to update interface configuration. Details: %(err)s"
+msgstr "인터페이스 구성을 업데이트할 수 없습니다. 세부사항: %(err)s"
+
+msgid "Invalid parameter for DNS servers"
+msgstr "DNS 서버에 올바르지 않은 매개변수입니다."
+
+msgid "Invalid parameter for interface ip address"
+msgstr "인터페이스 IP 주소에 올바르지 않은 매개변수입니다."
+
+msgid "Invalid parameter for interface netmask"
+msgstr "인터페이스 넷마스크에 올바르지 않은 매개변수입니다."
+
+msgid "Invalid parameter for network gateway"
+msgstr "네트워크 게이트웨이에 올바르지 않은 매개변수입니다."
+
+#, python-format
+msgid "Unable to get default gateway: %(err)s"
+msgstr "기본 게이트웨이를 가져올 수 없음: %(err)s"
+
+#, python-format
+msgid "Unable to delete default gateway: %(err)s"
+msgstr "기본 게이트웨이를 삭제할 수 없음: %(err)s"
+
+#, python-format
+msgid "Unable to set default gateway: %(err)s"
+msgstr "기본 게이트웨이를 설정할 수 없음: %(err)s"
+
+msgid "Specify name, password, group and profile for the new user."
+msgstr "새 사용자에 대한 이름, 비밀번호, 그룹 및 프로파일을 지정하십시오."
+
+msgid "User name is a required string."
+msgstr "사용자 이름은 필수 문자열입니다."
+
+msgid "User password is a required string."
+msgstr "사용자 비밀번호는 필수 문자열입니다."
+
+msgid "User group is a required string."
+msgstr "사용자 그룹은 필수 문자열입니다."
+
+msgid ""
+"User profile is required and should be one among kimchiuser, virtuser or "
+"admin."
+msgstr ""
+"사용자 프로파일은 필수이고 kimchiuser, virtuser 또는 admin 중하나여야 합니다."
+
+#, python-format
+msgid "Could not add user '%(user)s' to kvm group."
+msgstr "'%(user)s' 사용자를 kvm 그룹에 추가하지 못했습니다."
+
+#, python-format
+msgid "Could not add user '%(user)s' to sudoers list."
+msgstr "'%(user)s' 사용자를 sudoers 목록에 추가하지 못했습니다."
+
+#, python-format
+msgid "The user name '%(user)s' is already in use'."
+msgstr "'%(user)s' 사용자 이름을 이미 사용하고 있습니다."
+
+#, python-format
+msgid "Could not create user '%(user)s'."
+msgstr "'%(user)s' 사용자를 작성하지 못했습니다."
+
+#, python-format
+msgid "Could not delete user '%(user)s'."
+msgstr "'%(user)s' 사용자를 삭제하지 못했습니다."
+
+#, python-format
+msgid "User '%(user)s' does not exist."
+msgstr "'%(user)s' 사용자가 없습니다."
+
+#, python-format
+msgid "Could not delete group '%(group)s'"
+msgstr "'%(group)s' 그룹을 삭제하지 못했습니다."
+
+#, python-format
+msgid "Group for user '%(user)s' does not exist for removal."
+msgstr "제거하기 위한 '%(user)s' 사용자의 그룹이 없습니다."
+
+msgid "Cannot update system firmware while running VMs."
+msgstr "VM을 실행하는 중에 시스템 펌웨어를 업데이트할 수 없습니다."
+
+#, python-format
+msgid "Firmware image unpack failed: rc = %(rc)s. Details: %(err)s"
+msgstr "펌웨어 이미지 압축 풀기가 실패함: rc = %(rc)s. 세부사항: %(err)s"
+
+msgid "FW update failed: No image file found in the package file."
+msgstr "FW 업데이트 실패함: 패키지 파일에 이미지 파일이 없음."
+
+#, python-format
+msgid ""
+"Error flashing firmware. rc = %(rc)s.                      Please see /usr/"
+"sbin/update_flash for rc reasons."
+msgstr ""
+"펌웨어를 깜박이는 중에 오류 발생함. rc = %(rc)s.                      rc 원인"
+"은 /usr/sbin/update_flash를 참조하십시오. "
+
+#, python-format
+msgid ""
+"Error commiting firmware. rc = %(rc)s.                      Ensure you are "
+"booted to the temporary side."
+msgstr ""
+"펌웨어를 커미트하는 중에 오류가 발생함. rc = %(rc)s.                      임"
+"시 측에 부팅했는지 확인하십시오."
+
+#, python-format
+msgid ""
+"Error rejecting firmware. rc = %(rc)s.                      Ensure you are "
+"booted to the permanent side."
+msgstr ""
+"펌웨어를 거부하는 중에 오류가 발생함. rc = %(rc)s.                      영구 "
+"측에부팅했는지 확인하십시오."
+
+#, python-format
+msgid ""
+"Failed to create tar archive \"%(name)s\", cmd: \"%(cmd)s\". Inspect error "
+"log for more information."
+msgstr ""
+"tar 아카이브 \"%(name)s\"을(를) 작성하지 못했습니다. cmd: \"%(cmd)s\". 자세"
+"한 정보를 보려면오류 로그를 검사하십시오."
+
+#, python-format
+msgid "Failed to delete archive file \"%(name)s\"."
+msgstr "아카이브 파일 \"%(name)s\"을(를) 삭제하지 못했습니다."
+
+#, python-format
+msgid ""
+"Failed to create archive dir \"%(dir)s\". Inspect error log for more "
+"information."
+msgstr ""
+"아카이브 디렉토리 \"%(dir)s\"을(를) 작성하지 못했습니다. 자세한 정보를 보려면"
+"오류 로그를 검사하십시오."
+
+msgid "Description too long."
+msgstr "설명이 너무 깁니다."
+
+msgid "Please check the uniqueness of the paths or patterns."
+msgstr "경로 또는 패턴이 고유한지 확인하십시오."
+
+msgid "Path or pattern is too long or too short."
+msgstr "경로 또는 패턴이 너무 길거나 너무 짧습니다."
+
+msgid "Invalid days_ago number."
+msgstr "days_ago 숫자가 올바르지 않습니다."
+
+msgid "Invalid counts_ago number."
+msgstr "counts_ago 숫자가 올바르지 않습니다."
+
+#, python-format
+msgid ""
+"Failed to create archive \"%(identity)s\". Inspect error log for more "
+"information."
+msgstr ""
+"아카이브 \"%(identity)s\"을(를) 작성하지 못했습니다. 자세한 정보를 보려면오"
+"류 로그를 검사하십시오."
+
+#, python-format
+msgid "SAN adapter '%(adapter)s' does not exist in the system."
+msgstr "SAN 어댑터 '%(adapter)s'이(가) 시스템에 없습니다."
+
+msgid ""
+"Failed to retrieve power management profiles:                        Host OS "
+"does not support the tuned-adm package."
+msgstr ""
+"전원 관리 프로파일을 검색하지 못함: 호스트 OS가 tuned-adm 패키지를 지원하지 "
+"않습니다."
+
+msgid ""
+"Failed to retrieve power management profiles:                        Daemon "
+"'tuned-adm' is not active."
+msgstr ""
+"전원 관리 프로파일을 검색하지 못함: 디먼 'tuned-adm'이 활성이 아닙니다."
+
+msgid ""
+"Failed to retrieve power management profiles:                        Package "
+"'tuned-adm' is not installed."
+msgstr ""
+"전원 관리 프로파일을 검색하지 못함: 패키지 'tuned-adm'이 설치되지 않았습니다."
+
+#, python-format
+msgid "Error activating power saving profile %(profile)s."
+msgstr ""
+"전원 저장 프로파일 %(profile)s을(를) 활성화하는 중에 오류가 발생했습니다."
+
+msgid "System hostname is a required parameter."
+msgstr "시스템 호스트 이름은 필수 매개변수입니다."
+
+msgid "System port number is a required parameter."
+msgstr "시스템 포트 번호는 필수 매개변수입니다."
+
+msgid "SNMP community is a required parameter."
+msgstr "SNMP 커뮤니티는 필수 매개변수입니다."
+
+#, python-format
+msgid ""
+"SEP command execution error: '%(cmd)s' - rc: '%(rc)s'                      - "
+"error: '%(error)s'."
+msgstr ""
+"SEP 명령 실행 오류: '%(cmd)s' - rc: '%(rc)s'                      - 오류: "
+"'%(error)s'."
