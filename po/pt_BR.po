@@ -1,16 +1,15 @@
-# Brazilian Portuguese translations for Ginger package.
+# Portuguese (Brazil) translations for Ginger package.
 # Copyright (C) 2014 IBM, Corp.
 # This file is distributed under the same license as the Ginger package.
-# Zhou Zheng Sheng <zhshzhou@linux.vnet.ibm.com>, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Ginger 1.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-22 16:26+0800\n"
+"POT-Creation-Date: 2014-09-09 16:24-0300\n"
 "PO-Revision-Date: 2014-06-22 14:00+0800\n"
-"Last-Translator: Paulo Vital <pvital@linux.vnet.ibm.com>\n"
-"Language-Team: Paulo Vital <pvital@linux.vnet.ibm.com>\n"
+"Last-Translator: Zhou Zheng Sheng <zhshzhou@linux.vnet.ibm.com>\n"
+"Language-Team: Zhou Zheng Sheng <zhshzhou@linux.vnet.ibm.com>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,11 +40,104 @@ msgstr "Atualizar"
 msgid "Configuration Backup"
 msgstr "Backup de configuração"
 
+msgid "Batch Delete"
+msgstr "Exclusão em lote"
+
+msgid "New Custom Backup"
+msgstr "Novo backup customizado"
+
+msgid "Generate Default Backup"
+msgstr "Gerar backup padrão"
+
 msgid "File"
 msgstr "Arquivo"
 
 msgid "Timestamp"
 msgstr "Registro de data e hora"
+
+msgid "Network Configuration"
+msgstr "Configuração de rede"
+
+msgid "Interface"
+msgstr "Interface"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "IP"
+msgstr "IP"
+
+msgid "Mask"
+msgstr "Máscara"
+
+msgid "DNS"
+msgstr "DNS (Sistema de Nomes de Domínio)"
+
+msgid "Gateway"
+msgstr "Gateway"
+
+msgid "Power Options"
+msgstr "Opções de Energia"
+
+msgid "Activated Option"
+msgstr "Opção ativada"
+
+msgid "Selected Option"
+msgstr "Opção selecionada"
+
+msgid "Unselected Option"
+msgstr "Opção desmarcada"
+
+msgid "Activate"
+msgstr "Ativar"
+
+msgid "SAN Adapters"
+msgstr "Adaptadores SAN (rede de área de armazenamento)"
+
+msgid "WWPN"
+msgstr "WWPN (nome da porta universal)"
+
+msgid "WWNN"
+msgstr "WWNN (nome universal do nó)"
+
+msgid "State"
+msgstr "Estado"
+
+msgid "In-Use/Max Ports"
+msgstr "Portas Máx./Em Uso"
+
+msgid "Speed"
+msgstr "Velocidade"
+
+msgid "Symbolic Name"
+msgstr "Nome Simbólico"
+
+msgid "Sensor Monitor"
+msgstr "Monitor Sensor"
+
+msgid "SEP Configuration"
+msgstr "Configuração SEP"
+
+msgid "Status:"
+msgstr "Status:"
+
+msgid "Host Name:"
+msgstr "Nome do Host:"
+
+msgid "Port:"
+msgstr "Porta:"
+
+msgid "SNMP Community:"
+msgstr "Comunidade SNMP (Protocolo Simples de Gerenciamento de Rede):"
+
+msgid "Subscribe"
+msgstr "Assinar"
+
+msgid "Start"
+msgstr "Iniciar"
+
+msgid "Stop"
+msgstr "Parar"
 
 msgid "Description"
 msgstr "Descrição"
@@ -57,7 +149,7 @@ msgid "Path Excluded"
 msgstr "Caminho excluído"
 
 msgid "Preserve the latest"
-msgstr ""
+msgstr "Preservar o mais recente"
 
 msgid "backups"
 msgstr "backups"
@@ -99,15 +191,15 @@ msgstr "Parâmetro inválido para o gateway de rede"
 
 #, python-format
 msgid "Unable to get default gateway: %(err)s"
-msgstr ""
+msgstr "Não é possível obter o gateway padrão: %(err)s"
 
 #, python-format
 msgid "Unable to delete default gateway: %(err)s"
-msgstr ""
+msgstr "Não é possível excluir o gateway padrão: %(err)s"
 
 #, python-format
 msgid "Unable to set default gateway: %(err)s"
-msgstr ""
+msgstr "Não é possível configurar o gateway padrão: %(err)s"
 
 msgid "Specify name, password, group and profile for the new user."
 msgstr "Especifique o nome, a senha, o grupo e o perfil para o novo usuário."
@@ -186,12 +278,16 @@ msgid ""
 "Error commiting firmware. rc = %(rc)s.                      Ensure you are "
 "booted to the temporary side."
 msgstr ""
+"Erro ao confirmar firmware. rc = %(rc)s.                      Assegure-se de "
+"que você tenhainicializado o lado temporário."
 
 #, python-format
 msgid ""
 "Error rejecting firmware. rc = %(rc)s.                      Ensure you are "
 "booted to the permanent side."
 msgstr ""
+"Erro ao rejeitar firmware. rc = %(rc)s.                      Assegure-se de "
+"que você tenha inicializado o lado permanente."
 
 #, python-format
 msgid ""
@@ -239,3 +335,48 @@ msgstr ""
 #, python-format
 msgid "SAN adapter '%(adapter)s' does not exist in the system."
 msgstr ""
+"O adaptador SAN (rede de área de armazenamento) '%(adapter)s' não existe no "
+"sistema."
+
+msgid ""
+"Failed to retrieve power management profiles:                        Host OS "
+"does not support the tuned-adm package."
+msgstr ""
+"Falha ao recuperar os perfis de gerenciamento de "
+"energia:                        O sistema operacional do host não suporta o "
+"pacote tuned-adm."
+
+msgid ""
+"Failed to retrieve power management profiles:                        Daemon "
+"'tuned-adm' is not active."
+msgstr ""
+"Falha ao recuperar perfis de gerenciamento de "
+"energia:                        O daemon 'tuned-adm' não está ativo."
+
+msgid ""
+"Failed to retrieve power management profiles:                        Package "
+"'tuned-adm' is not installed."
+msgstr ""
+"Falha ao recuperar os perfis de gerenciamento de "
+"energia:                        O pacote 'tuned-adm' não está instalado."
+
+#, python-format
+msgid "Error activating power saving profile %(profile)s."
+msgstr "Erro ao ativar o perfil de economia de energia %(profile)s."
+
+msgid "System hostname is a required parameter."
+msgstr "System hostname é um parâmetro necessário."
+
+msgid "System port number is a required parameter."
+msgstr "System port number é um parâmetro necessário."
+
+msgid "SNMP community is a required parameter."
+msgstr "SNMP community é um parâmetro necessário."
+
+#, python-format
+msgid ""
+"SEP command execution error: '%(cmd)s' - rc: '%(rc)s'                      - "
+"error: '%(error)s'."
+msgstr ""
+"Erro de execução do comando SEP: '%(cmd)s' - rc: "
+"'%(rc)s'                      - erro: '%(error)s'."
