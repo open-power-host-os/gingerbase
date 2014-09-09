@@ -1,13 +1,12 @@
 # Simplified Chinese translations for Ginger package.
 # Copyright (C) 2014 IBM, Corp.
 # This file is distributed under the same license as the Ginger package.
-# Zhou Zheng Sheng <zhshzhou@linux.vnet.ibm.com>, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Ginger 1.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-22 16:26+0800\n"
+"POT-Creation-Date: 2014-09-09 16:24-0300\n"
 "PO-Revision-Date: 2014-06-22 14:00+0800\n"
 "Last-Translator: Zhou Zheng Sheng <zhshzhou@linux.vnet.ibm.com>\n"
 "Language-Team: Zhou Zheng Sheng <zhshzhou@linux.vnet.ibm.com>\n"
@@ -39,11 +38,104 @@ msgstr "更新"
 msgid "Configuration Backup"
 msgstr "配置备份"
 
+msgid "Batch Delete"
+msgstr "批量删除"
+
+msgid "New Custom Backup"
+msgstr "新建定制备份"
+
+msgid "Generate Default Backup"
+msgstr "生成缺省备份"
+
 msgid "File"
 msgstr "文件"
 
 msgid "Timestamp"
-msgstr "时间戳"
+msgstr "时间戳记"
+
+msgid "Network Configuration"
+msgstr "网络配置"
+
+msgid "Interface"
+msgstr "接口"
+
+msgid "Name"
+msgstr "名称"
+
+msgid "IP"
+msgstr "IP"
+
+msgid "Mask"
+msgstr "掩码"
+
+msgid "DNS"
+msgstr "DNS"
+
+msgid "Gateway"
+msgstr "网关"
+
+msgid "Power Options"
+msgstr "电源选项"
+
+msgid "Activated Option"
+msgstr "已激活选项"
+
+msgid "Selected Option"
+msgstr "选择的选项"
+
+msgid "Unselected Option"
+msgstr "未选择的选项"
+
+msgid "Activate"
+msgstr "激活"
+
+msgid "SAN Adapters"
+msgstr "SAN 适配器"
+
+msgid "WWPN"
+msgstr "WWPN"
+
+msgid "WWNN"
+msgstr "WWNN"
+
+msgid "State"
+msgstr "状态"
+
+msgid "In-Use/Max Ports"
+msgstr "使用中/最大端口数"
+
+msgid "Speed"
+msgstr "速度"
+
+msgid "Symbolic Name"
+msgstr "符号名称"
+
+msgid "Sensor Monitor"
+msgstr "传感器监视器"
+
+msgid "SEP Configuration"
+msgstr "SEP 配置"
+
+msgid "Status:"
+msgstr "状态："
+
+msgid "Host Name:"
+msgstr "主机名："
+
+msgid "Port:"
+msgstr "端口："
+
+msgid "SNMP Community:"
+msgstr "SNMP 共用项："
+
+msgid "Subscribe"
+msgstr "预订"
+
+msgid "Start"
+msgstr "启动"
+
+msgid "Stop"
+msgstr "停止"
 
 msgid "Description"
 msgstr "描述"
@@ -55,7 +147,7 @@ msgid "Path Excluded"
 msgstr "排除路径"
 
 msgid "Preserve the latest"
-msgstr ""
+msgstr "保留最新"
 
 msgid "backups"
 msgstr "个备份"
@@ -96,15 +188,15 @@ msgstr "网络网关参数无效"
 
 #, python-format
 msgid "Unable to get default gateway: %(err)s"
-msgstr "无法获得默认网关配置。详细信息：%(err)s"
+msgstr "无法获取缺省网关：%(err)s"
 
 #, python-format
 msgid "Unable to delete default gateway: %(err)s"
-msgstr "无法删除默认网关。详细信息：%(err)s"
+msgstr "无法删除缺省网关：%(err)s"
 
 #, python-format
 msgid "Unable to set default gateway: %(err)s"
-msgstr "无法设置默认网关。详细信息：%(err)s"
+msgstr "无法设置缺省网关：%(err)s"
 
 msgid "Specify name, password, group and profile for the new user."
 msgstr "指定新用户的名称、密码、组和概要文件。"
@@ -178,13 +270,17 @@ msgstr ""
 msgid ""
 "Error commiting firmware. rc = %(rc)s.                      Ensure you are "
 "booted to the temporary side."
-msgstr "提交固件时发生错误。rc = %(rc)s。请确保机器是从临时固件启动的。"
+msgstr ""
+"提交固件时发生错误。rc = %(rc)s。                      请确保您已引导到临时"
+"端。"
 
 #, python-format
 msgid ""
 "Error rejecting firmware. rc = %(rc)s.                      Ensure you are "
 "booted to the permanent side."
-msgstr "弹出固件时发生错误。rc = %(rc)s。请确保机器是从持久固件启动的。"
+msgstr ""
+"拒绝固件时发生错误。rc = %(rc)s。                      请确保您已引导到永久"
+"端。"
 
 #, python-format
 msgid ""
@@ -226,4 +322,44 @@ msgstr "未能创建归档“%(identity)s”。检查错误日志以了解更多
 
 #, python-format
 msgid "SAN adapter '%(adapter)s' does not exist in the system."
-msgstr "SAN适配器“%(adapter)s”不存在。"
+msgstr "系统中不存在 SAN 适配器“%(adapter)s”。"
+
+msgid ""
+"Failed to retrieve power management profiles:                        Host OS "
+"does not support the tuned-adm package."
+msgstr ""
+"未能检索电源管理概要文件：                        主机操作系统 不支持 tuned-"
+"adm 包。"
+
+msgid ""
+"Failed to retrieve power management profiles:                        Daemon "
+"'tuned-adm' is not active."
+msgstr ""
+"未能检索电源管理概要文件：                        守护程序“tuned-adm”不活动。"
+
+msgid ""
+"Failed to retrieve power management profiles:                        Package "
+"'tuned-adm' is not installed."
+msgstr ""
+"未能检索电源管理概要文件：                        包“tuned-adm”未安装。"
+
+#, python-format
+msgid "Error activating power saving profile %(profile)s."
+msgstr "激活省电概要文件 %(profile)s 时发生错误。"
+
+msgid "System hostname is a required parameter."
+msgstr "系统主机名是必需参数。"
+
+msgid "System port number is a required parameter."
+msgstr "系统端口号是必需参数。"
+
+msgid "SNMP community is a required parameter."
+msgstr "SNMP 共用体是必需参数。"
+
+#, python-format
+msgid ""
+"SEP command execution error: '%(cmd)s' - rc: '%(rc)s'                      - "
+"error: '%(error)s'."
+msgstr ""
+"SEP 命令执行错误：“%(cmd)s” - rc：“%(rc)s”                      - 错"
+"误：“%(error)s”。"
