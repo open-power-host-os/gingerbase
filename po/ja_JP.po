@@ -1,0 +1,383 @@
+# Japanese translations for Ginger package.
+# Copyright (C) 2014 IBM, Corp.
+# This file is distributed under the same license as the Ginger package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Ginger 1.2.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-09-09 16:18-0300\n"
+"PO-Revision-Date: 2014-06-22 14:00+0800\n"
+"Last-Translator: Zhou Zheng Sheng <zhshzhou@linux.vnet.ibm.com>\n"
+"Language-Team: Zhou Zheng Sheng <zhshzhou@linux.vnet.ibm.com>\n"
+"Language: ja_JP\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Firmware Update"
+msgstr "ファームウェア更新"
+
+msgid ""
+"Firmware update is initializing. System will reboot in order to flash the "
+"firmware."
+msgstr ""
+"ファームウェア更新を初期化中です。ファームウェアを消去するためにシステムがリ"
+"ブートされます。"
+
+msgid "Firmware Version: "
+msgstr "ファームウェア・バージョン: "
+
+msgid "Package Path: "
+msgstr "パッケージ・パス: "
+
+msgid "The absolute path to the firmware rpm."
+msgstr "ファームウェア rpm への絶対パス。"
+
+msgid "Update"
+msgstr "更新"
+
+msgid "Configuration Backup"
+msgstr "構成バックアップ"
+
+msgid "Batch Delete"
+msgstr "バッチ削除"
+
+msgid "New Custom Backup"
+msgstr "新規カスタム・バックアップ"
+
+msgid "Generate Default Backup"
+msgstr "デフォルト・バックアップの生成"
+
+msgid "File"
+msgstr "ファイル"
+
+msgid "Timestamp"
+msgstr "タイム・スタンプ"
+
+msgid "Network Configuration"
+msgstr "ネットワーク構成"
+
+msgid "Interface"
+msgstr "インターフェース"
+
+msgid "Name"
+msgstr "名前"
+
+msgid "IP"
+msgstr "IP"
+
+msgid "Mask"
+msgstr "マスク"
+
+msgid "DNS"
+msgstr "DNS"
+
+msgid "Gateway"
+msgstr "ゲートウェイ"
+
+msgid "Power Options"
+msgstr "電源オプション"
+
+msgid "Activated Option"
+msgstr "アクティブにされたオプション"
+
+msgid "Selected Option"
+msgstr "選択されたオプション"
+
+msgid "Unselected Option"
+msgstr "選択されていないオプション"
+
+msgid "Activate"
+msgstr "アクティブにする"
+
+msgid "SAN Adapters"
+msgstr "SAN アダプター"
+
+msgid "WWPN"
+msgstr "WWPN"
+
+msgid "WWNN"
+msgstr "WWNN"
+
+msgid "State"
+msgstr "状態"
+
+msgid "In-Use/Max Ports"
+msgstr "使用中のポート数/最大ポート数"
+
+msgid "Speed"
+msgstr "速度"
+
+msgid "Symbolic Name"
+msgstr "シンボル名"
+
+msgid "Sensor Monitor"
+msgstr "センサー・モニター"
+
+msgid "SEP Configuration"
+msgstr "SEP 構成"
+
+msgid "Status:"
+msgstr "状況:"
+
+msgid "Host Name:"
+msgstr "ホスト名:"
+
+msgid "Port:"
+msgstr "ポート:"
+
+msgid "SNMP Community:"
+msgstr "SNMP コミュニティー:"
+
+msgid "Subscribe"
+msgstr "サブスクライブ"
+
+msgid "Start"
+msgstr "開始"
+
+msgid "Stop"
+msgstr "停止"
+
+msgid "Description"
+msgstr "説明"
+
+msgid "Path Included"
+msgstr "組み込むパス"
+
+msgid "Path Excluded"
+msgstr "除外するパス"
+
+msgid "Preserve the latest"
+msgstr "最新を保持"
+
+msgid "backups"
+msgstr "バックアップ"
+
+msgid "days of backups"
+msgstr "日間のバックアップ"
+
+msgid "Administration"
+msgstr "管理"
+
+#, python-format
+msgid "Failed to read /etc/resolv.conf because %(reason)s"
+msgstr ""
+"%(reason)s が原因で /etc/resolv.conf を読み取ることができませんでした。"
+
+#, python-format
+msgid "Failed to write /etc/resolv.conf because %(reason)s"
+msgstr ""
+"%(reason)s が原因で /etc/resolv.conf を書き込むことができませんでした。"
+
+#, python-format
+msgid "Invalid network parameters. Details: %(err)s"
+msgstr "ネットワーク・パラメーターが無効です。詳細: %(err)s"
+
+#, python-format
+msgid "Unable to update interface configuration. Details: %(err)s"
+msgstr "インターフェース構成を更新できません。詳細: %(err)s"
+
+msgid "Invalid parameter for DNS servers"
+msgstr "DNS サーバーのパラメーターが無効です"
+
+msgid "Invalid parameter for interface ip address"
+msgstr "インターフェース IP アドレスのパラメーターが無効です"
+
+msgid "Invalid parameter for interface netmask"
+msgstr "インターフェース・ネットマスクのパラメーターが無効です"
+
+msgid "Invalid parameter for network gateway"
+msgstr "ネットワーク・ゲートウェイのパラメーターが無効です"
+
+#, python-format
+msgid "Unable to get default gateway: %(err)s"
+msgstr "デフォルト・ゲートウェイを取得できません: %(err)s"
+
+#, python-format
+msgid "Unable to delete default gateway: %(err)s"
+msgstr "デフォルト・ゲートウェイを削除できません: %(err)s"
+
+#, python-format
+msgid "Unable to set default gateway: %(err)s"
+msgstr "デフォルト・ゲートウェイを設定できません: %(err)s"
+
+msgid "Specify name, password, group and profile for the new user."
+msgstr ""
+"新規ユーザーの名前、パスワード、グループ、およびプロファイルを指定してくださ"
+"い。"
+
+msgid "User name is a required string."
+msgstr "ユーザー名は必須ストリングです。"
+
+msgid "User password is a required string."
+msgstr "ユーザー・パスワードは必須ストリングです。"
+
+msgid "User group is a required string."
+msgstr "ユーザー・グループは必須ストリングです。"
+
+msgid ""
+"User profile is required and should be one among kimchiuser, virtuser or "
+"admin."
+msgstr ""
+"ユーザー・プロファイルは必須であり、kimchiuser、virtuser、または admin のいず"
+"れかである必要があります。"
+
+#, python-format
+msgid "Could not add user '%(user)s' to kvm group."
+msgstr "ユーザー「%(user)s」を kvm グループに追加できませんでした。"
+
+#, python-format
+msgid "Could not add user '%(user)s' to sudoers list."
+msgstr "ユーザー「%(user)s」を sudoers リストに追加できませんでした。"
+
+#, python-format
+msgid "The user name '%(user)s' is already in use'."
+msgstr "ユーザー名「%(user)s」は既に使用中です。"
+
+#, python-format
+msgid "Could not create user '%(user)s'."
+msgstr "ユーザー「%(user)s」を作成できませんでした。"
+
+#, python-format
+msgid "Could not delete user '%(user)s'."
+msgstr "ユーザー「%(user)s」を削除できませんでした。"
+
+#, python-format
+msgid "User '%(user)s' does not exist."
+msgstr "ユーザー「%(user)s」は存在しません。"
+
+#, python-format
+msgid "Could not delete group '%(group)s'"
+msgstr "グループ「%(group)s」を削除できませんでした。"
+
+#, python-format
+msgid "Group for user '%(user)s' does not exist for removal."
+msgstr "削除対象であるユーザー「%(user)s」のグループは存在しません。"
+
+msgid "Cannot update system firmware while running VMs."
+msgstr "VM の稼働中はシステム・ファームウェアを更新できません。"
+
+#, python-format
+msgid "Firmware image unpack failed: rc = %(rc)s. Details: %(err)s"
+msgstr ""
+"ファームウェア・イメージのアンパックが失敗しました: rc = %(rc)s、詳細: "
+"%(err)s"
+
+msgid "FW update failed: No image file found in the package file."
+msgstr ""
+"FW 更新が失敗しました: イメージ・ファイルがパッケージ・ファイルに見つかりませ"
+"ん。"
+
+#, python-format
+msgid ""
+"Error flashing firmware. rc = %(rc)s.                      Please see /usr/"
+"sbin/update_flash for rc reasons."
+msgstr ""
+"ファームウェアの消去エラー。rc = %(rc)s。rc の理由については、/usr/sbin/"
+"update_flash を確認してください。"
+
+#, python-format
+msgid ""
+"Error commiting firmware. rc = %(rc)s.                      Ensure you are "
+"booted to the temporary side."
+msgstr ""
+"ファームウェアをコミットするときにエラーが発生しました。rc = %(rc)s。一時サイ"
+"ドにブートされていることを確認してください。"
+
+#, python-format
+msgid ""
+"Error rejecting firmware. rc = %(rc)s.                      Ensure you are "
+"booted to the permanent side."
+msgstr ""
+"ファームウェアをリジェクトするときにエラーが発生しました。rc = %(rc)s。永久サ"
+"イドにブートされていることを確認してください。"
+
+#, python-format
+msgid ""
+"Failed to create tar archive \"%(name)s\", cmd: \"%(cmd)s\". Inspect error "
+"log for more information."
+msgstr ""
+"tar アーカイブ「%(name)s」の作成に失敗しました。cmd: 「%(cmd)s」。詳細につい"
+"ては、エラー・ログを調べてください。"
+
+#, python-format
+msgid "Failed to delete archive file \"%(name)s\"."
+msgstr "アーカイブ・ファイル「%(name)s」の削除に失敗しました。"
+
+#, python-format
+msgid ""
+"Failed to create archive dir \"%(dir)s\". Inspect error log for more "
+"information."
+msgstr ""
+"アーカイブ・ディレクトリー「%(dir)s」の作成に失敗しました。詳細については、エ"
+"ラー・ログを調べてください。"
+
+msgid "Description too long."
+msgstr "説明が長すぎます。"
+
+msgid "Please check the uniqueness of the paths or patterns."
+msgstr "パスまたはパターンの固有性を確認してください。"
+
+msgid "Path or pattern is too long or too short."
+msgstr "パスまたはパターンが長すぎるか、短すぎます。"
+
+msgid "Invalid days_ago number."
+msgstr "days_ago 数が無効です。"
+
+msgid "Invalid counts_ago number."
+msgstr "counts_ago 数が無効です。"
+
+#, python-format
+msgid ""
+"Failed to create archive \"%(identity)s\". Inspect error log for more "
+"information."
+msgstr ""
+"アーカイブ「%(identity)s」の作成に失敗しました。詳細については、エラー・ログ"
+"を調べてください。"
+
+#, python-format
+msgid "SAN adapter '%(adapter)s' does not exist in the system."
+msgstr "SAN アダプター「%(adapter)s」はシステムに存在しません。"
+
+msgid ""
+"Failed to retrieve power management profiles:                        Host OS "
+"does not support the tuned-adm package."
+msgstr ""
+"電源管理プロファイルを取得できませんでした: ホスト OS が tuned-adm パッケージ"
+"をサポートしていません。"
+
+msgid ""
+"Failed to retrieve power management profiles:                        Daemon "
+"'tuned-adm' is not active."
+msgstr ""
+"電源管理プロファイルを取得できませんでした: デーモン「tuned-adm」がアクティブ"
+"ではありません。"
+
+msgid ""
+"Failed to retrieve power management profiles:                        Package "
+"'tuned-adm' is not installed."
+msgstr ""
+"電源管理プロファイルを取得できませんでした: パッケージ「tuned-adm」がインス"
+"トールされていません。"
+
+#, python-format
+msgid "Error activating power saving profile %(profile)s."
+msgstr ""
+"省電力プロファイル %(profile)s をアクティブにするときにエラーが発生しました。"
+
+msgid "System hostname is a required parameter."
+msgstr "システム・ホスト名は必須パラメーターです。"
+
+msgid "System port number is a required parameter."
+msgstr "システム・ポート番号は必須パラメーターです。"
+
+msgid "SNMP community is a required parameter."
+msgstr "SNMP コミュニティーは必須パラメーターです。"
+
+#, python-format
+msgid ""
+"SEP command execution error: '%(cmd)s' - rc: '%(rc)s'                      - "
+"error: '%(error)s'."
+msgstr ""
+"SEP コマンド実行エラー: 「%(cmd)s」 - rc: 「%(rc)s」 - エラー: '%(error)s'。"
