@@ -4,7 +4,7 @@
 %endif
 
 %define frobisher_release 20
-%define release .11
+%define release .12
 Name:		ginger
 Version:	1.2.1
 Release:	%{?frobisher_release}%{?release}%{?dist}
@@ -92,6 +92,19 @@ service kimchid restart
 
 
 %changelog
+* Thu Sep 11 2014 Paulo Vital <pvital@linux.vnet.ibm.com> 1.2.1-20.12
+- i18n support: Add German translation - Bugzilla #115732
+- i18n support: Add Spanish translation - Bugzilla #115732
+- i18n support: Add French translation - Bugzilla #115732
+- i18n support: Add Italian translation - Bugzilla #115732
+- i18n support: Add Japanese translation - Bugzilla #115732
+- i18n support: Add Korean translation - Bugzilla #115732
+- i18n support: Add Russian translation - Bugzilla #115732
+- i18n support: Add Traditional Chinese translation - Bugzilla #115732
+- i18n support: Update Portuguese (Brazil) translation - Bugzilla #115732
+- i18n support: Update Simplified Chinese translation - Bugzilla #115732
+- Update spec file to PowerKVM 2.1.1 (20.12)
+
 * Thu Sep 04 2014 Paulo Vital <pvital@linux.vnet.ibm.com> 1.2.1-20.11
 - Bugfix Takes time to activate tuned profile in "Power Options" - Bugzilla #115184
 - Update spec file to PowerKVM 2.1.1 (20.11)
