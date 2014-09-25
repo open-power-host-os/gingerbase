@@ -1,4 +1,4 @@
-# Portuguese (Brazil) translations for Ginger package.
+# Brazilian Portuguese translations for Ginger package.
 # Copyright (C) 2014 IBM, Corp.
 # This file is distributed under the same license as the Ginger package.
 #
@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ginger 1.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-09 16:24-0300\n"
+"POT-Creation-Date: 2014-09-25 15:56-0300\n"
 "PO-Revision-Date: 2014-06-22 14:00+0800\n"
 "Last-Translator: Zhou Zheng Sheng <zhshzhou@linux.vnet.ibm.com>\n"
 "Language-Team: Zhou Zheng Sheng <zhshzhou@linux.vnet.ibm.com>\n"
@@ -279,7 +279,7 @@ msgid ""
 "booted to the temporary side."
 msgstr ""
 "Erro ao confirmar firmware. rc = %(rc)s.                      Assegure-se de "
-"que você tenhainicializado o lado temporário."
+"que você tenha inicializado o lado temporário."
 
 #, python-format
 msgid ""

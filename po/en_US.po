@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ginger 1.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-22 16:26+0800\n"
+"POT-Creation-Date: 2014-09-25 15:56-0300\n"
 "PO-Revision-Date: 2014-06-22 14:00+0800\n"
 "Last-Translator: Zhou Zheng Sheng <zhshzhou@linux.vnet.ibm.com>\n"
 "Language-Team: Zhou Zheng Sheng <zhshzhou@linux.vnet.ibm.com>\n"
@@ -39,10 +39,103 @@ msgstr ""
 msgid "Configuration Backup"
 msgstr ""
 
+msgid "Batch Delete"
+msgstr ""
+
+msgid "New Custom Backup"
+msgstr ""
+
+msgid "Generate Default Backup"
+msgstr ""
+
 msgid "File"
 msgstr ""
 
 msgid "Timestamp"
+msgstr ""
+
+msgid "Network Configuration"
+msgstr ""
+
+msgid "Interface"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "IP"
+msgstr ""
+
+msgid "Mask"
+msgstr ""
+
+msgid "DNS"
+msgstr ""
+
+msgid "Gateway"
+msgstr ""
+
+msgid "Power Options"
+msgstr ""
+
+msgid "Activated Option"
+msgstr ""
+
+msgid "Selected Option"
+msgstr ""
+
+msgid "Unselected Option"
+msgstr ""
+
+msgid "Activate"
+msgstr ""
+
+msgid "SAN Adapters"
+msgstr ""
+
+msgid "WWPN"
+msgstr ""
+
+msgid "WWNN"
+msgstr ""
+
+msgid "State"
+msgstr ""
+
+msgid "In-Use/Max Ports"
+msgstr ""
+
+msgid "Speed"
+msgstr ""
+
+msgid "Symbolic Name"
+msgstr ""
+
+msgid "Sensor Monitor"
+msgstr ""
+
+msgid "SEP Configuration"
+msgstr ""
+
+msgid "Status:"
+msgstr ""
+
+msgid "Host Name:"
+msgstr ""
+
+msgid "Port:"
+msgstr ""
+
+msgid "SNMP Community:"
+msgstr ""
+
+msgid "Subscribe"
+msgstr ""
+
+msgid "Start"
+msgstr ""
+
+msgid "Stop"
 msgstr ""
 
 msgid "Description"
@@ -222,4 +315,38 @@ msgstr ""
 
 #, python-format
 msgid "SAN adapter '%(adapter)s' does not exist in the system."
+msgstr ""
+
+msgid ""
+"Failed to retrieve power management profiles:                        Host OS "
+"does not support the tuned-adm package."
+msgstr ""
+
+msgid ""
+"Failed to retrieve power management profiles:                        Daemon "
+"'tuned-adm' is not active."
+msgstr ""
+
+msgid ""
+"Failed to retrieve power management profiles:                        Package "
+"'tuned-adm' is not installed."
+msgstr ""
+
+#, python-format
+msgid "Error activating power saving profile %(profile)s."
+msgstr ""
+
+msgid "System hostname is a required parameter."
+msgstr ""
+
+msgid "System port number is a required parameter."
+msgstr ""
+
+msgid "SNMP community is a required parameter."
+msgstr ""
+
+#, python-format
+msgid ""
+"SEP command execution error: '%(cmd)s' - rc: '%(rc)s'                      - "
+"error: '%(error)s'."
 msgstr ""
