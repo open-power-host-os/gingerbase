@@ -4,7 +4,7 @@
 %endif
 
 %define frobisher_release 20
-%define release .12
+%define release .14
 Name:		ginger
 Version:	1.2.1
 Release:	%{?frobisher_release}%{?release}%{?dist}
@@ -92,6 +92,15 @@ service kimchid restart
 
 
 %changelog
+* Thu Sep 25 2014 Rodrigo Trujillo <rodrigo.trujillo@linux.vnet.ibm.com> 1.2.1-20.14
+- host-admin.js: disabling OK button when processing - BZ#109251
+- Add timeout check for configuration backup - BZ#109251
+- Bugfix: Make buttons display properly when the text is long - BZ#116209
+- Enhancement: Change the SEP status style from text to a status dot - BZ#116223
+- Update Makefile.am to add autogen.sh in tarball.
+- Deal with bad hdd sensor data - BZ#116332
+- i18n support: Update translation files
+
 * Thu Sep 11 2014 Paulo Vital <pvital@linux.vnet.ibm.com> 1.2.1-20.12
 - i18n support: Add German translation - Bugzilla #115732
 - i18n support: Add Spanish translation - Bugzilla #115732
