@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ginger 1.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-09 16:21-0300\n"
+"POT-Creation-Date: 2014-10-02 18:52-0300\n"
 "PO-Revision-Date: 2014-06-22 14:00+0800\n"
 "Last-Translator: Zhou Zheng Sheng <zhshzhou@linux.vnet.ibm.com>\n"
 "Language-Team: Zhou Zheng Sheng <zhshzhou@linux.vnet.ibm.com>\n"
@@ -326,6 +326,14 @@ msgid ""
 msgstr ""
 "아카이브 \"%(identity)s\"을(를) 작성하지 못했습니다. 자세한 정보를 보려면오"
 "류 로그를 검사하십시오."
+
+#, python-format
+msgid ""
+"Timeout while creating archive \"%(identity)s\", the files might be too "
+"large for a configuration backup."
+msgstr ""
+"아카이브 \"%(identity)s\"을(를) 작성하는 중 제한시간이 초과되었습니다. 파일"
+"이 너무 커서 구성 백업을 할 수 없습니다. "
 
 #, python-format
 msgid "SAN adapter '%(adapter)s' does not exist in the system."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ginger 1.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-09 16:00-0300\n"
+"POT-Creation-Date: 2014-10-02 18:52-0300\n"
 "PO-Revision-Date: 2014-06-22 14:00+0800\n"
 "Last-Translator: Zhou Zheng Sheng <zhshzhou@linux.vnet.ibm.com>\n"
 "Language-Team: Zhou Zheng Sheng <zhshzhou@linux.vnet.ibm.com>\n"
@@ -338,6 +338,14 @@ msgid ""
 msgstr ""
 "Erstellen des Archivs \"%(identity)s\" ist fehlgeschlagen. Weitere "
 "Informationen finden Sie im Fehlerprotokoll."
+
+#, python-format
+msgid ""
+"Timeout while creating archive \"%(identity)s\", the files might be too "
+"large for a configuration backup."
+msgstr ""
+"Zeitlimitüberschreitung beim Erstellen des Archivs \"%(identity)s\", "
+"möglicherweise sind die Dateien zu groß für eine Konfigurationssicherung."
 
 #, python-format
 msgid "SAN adapter '%(adapter)s' does not exist in the system."

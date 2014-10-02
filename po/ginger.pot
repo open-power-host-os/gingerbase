@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-25 15:56-0300\n"
+"POT-Creation-Date: 2014-10-02 18:52-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -312,6 +312,12 @@ msgstr ""
 msgid ""
 "Failed to create archive \"%(identity)s\". Inspect error log for more "
 "information."
+msgstr ""
+
+#, python-format
+msgid ""
+"Timeout while creating archive \"%(identity)s\", the files might be too "
+"large for a configuration backup."
 msgstr ""
 
 #, python-format

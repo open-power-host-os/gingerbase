@@ -1,4 +1,4 @@
-# English translations for Ginger package.
+# Spanish translations for Ginger package.
 # Copyright (C) 2014 IBM, Corp.
 # This file is distributed under the same license as the Ginger package.
 #
@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ginger 1.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-25 15:56-0300\n"
+"POT-Creation-Date: 2014-10-02 18:52-0300\n"
 "PO-Revision-Date: 2014-06-22 14:00+0800\n"
 "Last-Translator: Zhou Zheng Sheng <zhshzhou@linux.vnet.ibm.com>\n"
 "Language-Team: Zhou Zheng Sheng <zhshzhou@linux.vnet.ibm.com>\n"
@@ -149,7 +149,7 @@ msgid "Path Excluded"
 msgstr "Vía de acceso excluida"
 
 msgid "Preserve the latest"
-msgstr "Conservar "
+msgstr "Conservar"
 
 msgid "backups"
 msgstr "últimas copias de seguridad"
@@ -332,6 +332,14 @@ msgid ""
 msgstr ""
 "No se ha podido crear el archivo \"%(identity)s\". Inspeccione el registro "
 "de errores para obtener más información."
+
+#, python-format
+msgid ""
+"Timeout while creating archive \"%(identity)s\", the files might be too "
+"large for a configuration backup."
+msgstr ""
+"Tiempo de espera excedido al crear archivo \"%(identity)s\", quizá los "
+"archivos sean demasiado grandes para copia de seguridad de configuración."
 
 #, python-format
 msgid "SAN adapter '%(adapter)s' does not exist in the system."
