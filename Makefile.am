@@ -34,6 +34,8 @@ ginger_PYTHON = \
 
 gingerdir = $(pythondir)/kimchi/plugins/ginger
 
+gingerhelpdir = $(abs_builddir)/ui/pages/help
+
 confdir = $(sysconfdir)/kimchi/plugins.d
 dist_conf_DATA = ginger.conf
 
@@ -43,9 +45,11 @@ EXTRA_DIST = \
 	autogen.sh \
 	build-aux/config.rpath \
 	build-aux/pkg-version \
+	ginger.conf.in \
 	$(NULL)
 
 CLEANFILES = \
+	ginger.conf \
 	$(ginger_PYTHON:%.py=%.pyc) \
 	$(NULL)
 
@@ -68,8 +72,12 @@ all-local:
 	done < po/LINGUAS
 
 
+install-data-local: gingerhelpdir = $(datadir)/kimchi/plugins/ginger/ui/pages/help
+
+
 install-data-local:
 	$(MKDIR_P) $(DESTDIR)$(gingerdir)
+	sed -e 's,[@]gingerhelpdir[@],$(gingerhelpdir),g' < ginger.conf.in > ginger.conf
 	$(INSTALL_DATA) API.json $(DESTDIR)$(gingerdir)/API.json
 
 
@@ -78,6 +86,10 @@ rpm: dist ginger.spec
 	cp $(top_srcdir)/ginger.spec rpm/SPECS/ginger.spec
 	cp $(DIST_ARCHIVES) rpm/SOURCES
 	rpmbuild -ba --define "_topdir `pwd`/rpm" rpm/SPECS/ginger.spec
+
+
+ginger.conf: ginger.conf.in
+	sed -e 's,[@]gingerhelpdir[@],$(gingerhelpdir),g' < ginger.conf.in > ginger.conf
 
 
 ChangeLog:

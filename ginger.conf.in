@@ -51,3 +51,9 @@ tools.kimchiauth.admin_methods = ['GET']
 [/ibm_sep]
 tools.kimchiauth.on = True
 tools.kimchiauth.admin_methods = ['GET', 'POST', 'PUT']
+
+[/help]
+tools.staticdir.on = True
+tools.nocache.on = True
+tools.staticdir.dir = '@gingerhelpdir@'
+tools.kimchiauth.admin_methods = ['GET']

@@ -17,6 +17,7 @@ config.status
 configure
 ginger-*.tar.gz
 ginger.spec
+ginger.conf
 po/POTFILES
 po/gen-pot
 rpm
