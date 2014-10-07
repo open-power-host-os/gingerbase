@@ -4,7 +4,7 @@
 %endif
 
 %define frobisher_release 20
-%define release .16
+%define release .17
 Name:		ginger
 Version:	1.2.1
 Release:	%{?frobisher_release}%{?release}%{?dist}
@@ -95,6 +95,9 @@ service kimchid restart
 
 
 %changelog
+* Tue Oct 7 2014 Rodrigo Trujillo <rodrigo.trujillo@linux.vnet.ibm.com> 1.2.1-20.17
+- i18n support: Update Italian translation file
+
 * Thu Oct 2 2014 Rodrigo Trujillo <rodrigo.trujillo@linux.vnet.ibm.com> 1.2.1-20.16
 - i18n support: Update translation files
 - Add Ginger Help files - BZ#114095
