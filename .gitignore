@@ -7,6 +7,7 @@ Makefile.in
 VERSION
 aclocal.m4
 autom4te.cache
+build-aux/compile
 build-aux/config.guess
 build-aux/config.sub
 build-aux/install-sh
@@ -21,3 +22,4 @@ ginger.conf
 po/POTFILES
 po/gen-pot
 rpm
+ui/pages/help/*/*.html
