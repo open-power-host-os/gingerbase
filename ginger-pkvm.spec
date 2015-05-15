@@ -27,8 +27,8 @@ Requires:	serviceable.event.provider
 %endif
 
 Obsoletes:	kimchi-ginger
-Conflicts:	kimchi-ginger
-Provides:	kimchi-ginger
+Conflicts:	kimchi-ginger < %{version}
+Provides:	kimchi-ginger = %{version}
 
 %description
 Ginger is a host management plugin to Kimchi, that provides an
