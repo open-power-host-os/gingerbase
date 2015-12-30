@@ -40,7 +40,7 @@ class GingerModel(BaseModel):
         self._objstore = ObjectStore(objstore_loc)
 
         sub_models = []
-        firmware = FirmwareModel()
+        firmware = FirmwareModel(objstore=self._objstore)
         powerprofiles = PowerProfilesModel()
         powerprofile = PowerProfileModel()
         users = UsersModel()
