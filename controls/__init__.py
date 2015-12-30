@@ -20,6 +20,7 @@
 from backup import Backup
 from capabilities import Capabilities
 from firmware import Firmware
+from firmware import FirmwareProgress
 from ibm_sep import Sep
 from network import Network
 from powermanagement import PowerProfiles
@@ -31,6 +32,7 @@ __all__ = [
     Backup,
     Capabilities,
     Firmware,
+    FirmwareProgress,
     Network,
     PowerProfiles,
     SanAdapters,

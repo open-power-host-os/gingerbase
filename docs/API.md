@@ -68,6 +68,15 @@ please consider the following general conventions (from Kimchi documentation):
             the machine must be running the permanent image.
 
 
+### Resource: FirmwareProgess (Power System firmware)
+
+**URI:** /plugins/ginger/fwprogress
+
+**Methods:**
+
+* **GET**: Retrieve the output of the update_flash execution.
+
+
 ### Collection: SAN Adapters (Fibre Channel SCSI Hosts - HBAs)
 
 **URI:** /plugins/ginger/san_adapters
@@ -145,4 +154,3 @@ please consider the following general conventions (from Kimchi documentation):
 
 * start: Start the SEP daemon on host server.
 * stop: Stop the SEP daemon on host server.
-
