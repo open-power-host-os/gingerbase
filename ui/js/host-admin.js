@@ -783,9 +783,30 @@ ginger.initFirmware = function() {
                 $("#gingerFWUpdateMess").css("display", "inline-block");
                 $("#gingerPackPathSub").button("disable");
                 $("#gingerPackPath").prop("disabled", true);
+                var progressArea = $('#' + progressAreaID)[0];
+                $('#fwprogress-container').removeClass('hidden');
+                $(progressArea).text('');
+                !kimchi.isElementInViewport(progressArea) &&
+                    progressArea.scrollIntoView();
+
+                ginger.fwProgress(function(result) {
+                    reloadProgressArea(result);
+                    kimchi.topic('ginger/').publish({
+                        result: result
+                    });
+                }, function(error) {
+                    kimchi.message.error(error.responseJSON.reason);
+                }, reloadProgressArea);
             });
         }, null);
     });
+    var progressAreaID = 'fwprogress-textarea';
+    var reloadProgressArea = function(result) {
+        var progressArea = $('#' + progressAreaID)[0];
+        $(progressArea).text(result['message']);
+        var scrollTop = $(progressArea).prop('scrollHeight');
+        $(progressArea).prop('scrollTop', scrollTop);
+    };
 };
 
 ginger.initAdmin = function(){

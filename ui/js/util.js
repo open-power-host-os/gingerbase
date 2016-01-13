@@ -46,6 +46,56 @@ ginger.updateFirmware = function(content, suc, err){
     });
 };
 
+ginger.fwProgress = function(suc, err, progress) {
+    var taskID = -1;
+    var onResponse = function(data) {
+        taskID = data['id'];
+        trackTask();
+    };
+
+    var trackTask = function() {
+        ginger.getTask(taskID, onTaskResponse, err);
+    };
+
+    var onTaskResponse = function(result) {
+        var taskStatus = result['status'];
+        switch(taskStatus) {
+        case 'running':
+            progress && progress(result);
+            setTimeout(function() {
+                trackTask();
+            }, 1000);
+            break;
+        case 'finished':
+        case 'failed':
+            suc(result);
+            break;
+        default:
+            break;
+        }
+    };
+
+    kimchi.requestJSON({
+        url : 'plugins/ginger/fwprogress',
+        type : "GET",
+        contentType : "application/json",
+        dataType : "json",
+        success : onResponse,
+        error : err
+    });
+};
+
+ginger.getTask = function(taskId, suc, err) {
+    kimchi.requestJSON({
+        url : 'tasks/' + encodeURIComponent(taskId),
+        type : 'GET',
+        contentType : 'application/json',
+        dataType : 'json',
+        success : suc,
+        error : err
+    });
+};
+
 ginger.listBackupArchives = function(suc, err){
     kimchi.requestJSON({
         url : kimchi.url + 'plugins/ginger/backup/archives',
