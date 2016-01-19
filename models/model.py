@@ -39,9 +39,12 @@ class GingerModel(BaseModel):
         objstore_loc = config.get_object_store() + '_ginger'
         self._objstore = ObjectStore(objstore_loc)
 
+        # some features need use Kimchi objectstore to use tasks REST API
+        self._kimchi_objstore = ObjectStore(config.get_object_store())
+
         sub_models = []
-        firmware = FirmwareModel(objstore=self._objstore)
-        firmwareprogress = FirmwareProgressModel(objstore=self._objstore)
+        firmware = FirmwareModel(objstore=self._kimchi_objstore)
+        fwprogress = FirmwareProgressModel(objstore=self._kimchi_objstore)
         powerprofiles = PowerProfilesModel()
         powerprofile = PowerProfileModel()
         users = UsersModel()
@@ -61,12 +64,12 @@ class GingerModel(BaseModel):
         subscriber = SubscribersModel()
 
         features = [firmware, backup, network, powerprofiles, san_adapters,
-                    sensors, ibm_sep, users, firmwareprogress]
+                    sensors, ibm_sep, users, fwprogress]
         capabilities = CapabilitiesModel(features)
 
         sub_models = [
             backup, archives, archive,
-            firmware, firmwareprogress,
+            firmware, fwprogress,
             interfaces, interface,
             network,
             powerprofiles, powerprofile,
