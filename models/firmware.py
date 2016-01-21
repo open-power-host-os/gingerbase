@@ -50,7 +50,7 @@ class FirmwareModel(object):
         self.task = TaskModel(**kargs)
         self.objstore = kargs['objstore']
 
-    def lookup(self, params=None):
+    def lookup(self, *args):
         output, error, rc = run_command('lsmcode')
         if rc:
             kimchi_log.error('Unable to retreive firmware level.')
@@ -65,13 +65,16 @@ class FirmwareModel(object):
             levels = output.split()[13]
         return {'level': levels}
 
-    def update(self, name, params):
+    def upgrade(self, fw_path=None, pow_ok=True):
         if detect_live_vm():
             kimchi_log.error('Cannot update system fw while running VMs.')
             raise OperationFailed('GINFW0001E')
 
-        fw_path = params['path']
-        pow_ok = params.get('overwrite-perm-ok', True)
+        # Process argumets provided by user: firmware path and overwrite-perm
+        if fw_path is None:
+            kimchi_log.error('FW update failed: '
+                             'No image file found in the package file.')
+            raise OperationFailed('GINFW0003E')
 
         ms = magic.open(magic.NONE)
         ms.load()
@@ -101,8 +104,9 @@ class FirmwareModel(object):
         kimchi_log.info('FW update: System will reboot to flash the firmware.')
 
         cmd_params = {'command': command, 'operation': 'update'}
-        taskid = add_task('', self._execute_task, self.objstore, cmd_params)
-        return taskid
+        taskid = add_task('/plugins/ginger/firmware/upgrade',
+                          self._execute_task, self.objstore, cmd_params)
+        return self.task.lookup(taskid)
 
     def commit(self, name):
         command = ['update_flash', '-c']
@@ -132,11 +136,12 @@ class FirmwareModel(object):
         if rc:
             if params['operation'] == 'update':
                 kimchi_log.error('Error flashing firmware.\n %s' % error)
-                cb("Error", True)
+                cb("Error flashing firmware: %(error)s. \
+                    Please see /usr/sbin/update_flash for rc reasons.", True)
                 raise OperationFailed('GINFW0004E', {'rc': rc})
             else:
                 kimchi_log.error('Async run_command error: ', error)
-                cb("Error", True)
+                cb('Async run_command error: %s' % error, True)
         cb("OK", True)
 
 
@@ -150,9 +155,9 @@ class FirmwareProgressModel(object):
     def is_update_flash_running(self):
         for task in self.tasks.get_list():
             info = self.task.lookup(task)
-            if (info['status'] == 'running' and
-                    info['message'] == 'update_flash running.'):
-                return True
+            if info['target_uri'] == '/plugins/ginger/firmware/upgrade':
+                if info['status'] == 'running':
+                    return True
         self.current_taskid = 0
         return False
 
@@ -163,7 +168,9 @@ class FirmwareProgressModel(object):
         progress.
         """
         if not self.is_update_flash_running():
-            return cb("Error", True)
+            msg = "Error flashing firmware.\n"
+            msg = msg+"Please see /usr/sbin/update_flash for rc reasons."
+            return cb(msg, True)
 
         fd = None
         try:
