@@ -20,6 +20,9 @@ Requires:	powerpc-utils
 Requires:	serviceable.event.provider
 %endif
 
+%if 0%{?fedora} >= 15 || 0%{?rhel} >= 7
+%global with_systemd 1
+%endif
 
 %description
 Ginger is a host management plugin to Kimchi, that provides an
@@ -48,18 +51,20 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 %if 0%{?with_systemd}
-install -dm 0755 /usr/lib/systemd/system/kimchid.service.requires
-ln -sf ../tuned.service /usr/lib/systemd/system/kimchid.service.requires
-/bin/systemctl daemon-reload >/dev/null 2>&1 || :
-service kimchid restart
+    install -dm 0755 /usr/lib/systemd/system/kimchid.service.requires
+    ln -sf /usr/lib/systemd/system/tuned.service /usr/lib/systemd/system/kimchid.service.requires
+    /bin/systemctl daemon-reload >/dev/null 2>&1 || :
+    service kimchid restart
 %endif
 
 
 %postun
 %if 0%{?with_systemd}
-rm -f /usr/lib/systemd/system/kimchid.service.requires/tuned.service
-/bin/systemctl daemon-reload >/dev/null 2>&1 || :
-service kimchid restart
+    if [ $1 == 0 ]; then  # uninstall
+        unlink /usr/lib/systemd/system/kimchid.service.requires/tuned.service
+        /bin/systemctl daemon-reload >/dev/null 2>&1 || :
+        service kimchid restart
+    fi
 %endif
 
 
@@ -86,6 +91,9 @@ service kimchid restart
 
 
 %changelog
+* Mon May 16 2016 Ramon Medeiros <ramonn@linux.vnet.ibm.com>
+- Does not disable tuned service as dependency when update package
+
 * Thu Oct 2 2014 Rodrigo Trujillo <rodrigo.trujillo@linux.vnet.ibm.com>
 - Add Help pages for Ginger
 - Change build system to enable and release Help pages
