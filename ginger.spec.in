@@ -68,6 +68,14 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 
+%posttrans
+%if 0%{?with_systemd}
+    install -dm 0755 /usr/lib/systemd/system/kimchid.service.requires
+    ln -sf /usr/lib/systemd/system/tuned.service /usr/lib/systemd/system/kimchid.service.requires
+    /bin/systemctl daemon-reload >/dev/null 2>&1 || :
+    service kimchid restart
+%endif
+
 %files
 %attr(-,root,root)
 %{python_sitelib}/kimchi/plugins/ginger/*.py*
