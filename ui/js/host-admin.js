@@ -779,10 +779,13 @@ ginger.initFirmware = function() {
             confirm : i18n['KCHAPI6002M'],
             cancel : i18n['KCHAPI6003M']
         }, function() {
-            ginger.updateFirmware({ path: $("#gingerPackPath").prop("value") }, function(){
+            ginger.updateFirmware({
+                path: $("#gingerPackPath").prop("value")
+            }, function(result) {
                 $("#gingerFWUpdateMess").css("display", "inline-block");
-                $("#gingerPackPathSub").button("disable");
+                $("#gingerPackPathSub").prop('disabled', true);
                 $("#gingerPackPath").prop("disabled", true);
+
                 var progressArea = $('#' + progressAreaID)[0];
                 $('#fwprogress-container').removeClass('hidden');
                 $(progressArea).text('');
@@ -794,12 +797,16 @@ ginger.initFirmware = function() {
                     kimchi.topic('ginger/').publish({
                         result: result
                     });
-                }, function(error) {
-                    kimchi.message.error(error.responseJSON.reason);
+                }, function() {
+                    kimchi.message.error(i18n['GINFW0007E']);
                 }, reloadProgressArea);
+            }, function(error) {
+                $("#gingerFWUpdateMess").css("display", "none");
+                kimchi.message.error(error['message'] || i18n['GINFW0007E']);
             });
         }, null);
     });
+
     var progressAreaID = 'fwprogress-textarea';
     var reloadProgressArea = function(result) {
         var progressArea = $('#' + progressAreaID)[0];

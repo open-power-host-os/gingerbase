@@ -33,13 +33,41 @@ ginger.getFirmware = function(suc, err){
 };
 
 ginger.updateFirmware = function(content, suc, err){
+    var taskID = -1;
+    var onResponse = function(data) {
+        taskID = data['id'];
+        suc(data);
+        trackTask();
+    };
+
+    var trackTask = function() {
+        ginger.getTask(taskID, onTaskResponse, err);
+    };
+
+    var onTaskResponse = function(result) {
+        var taskStatus = result['status'];
+        switch(taskStatus) {
+        case 'running':
+            setTimeout(function() {
+                trackTask();
+            }, 1000);
+            break;
+        case 'failed':
+            err(result)
+            break;
+        case 'finished':
+        default:
+            break;
+        }
+    };
+
     $.ajax({
         url : kimchi.url + "plugins/ginger/firmware/upgrade",
         type : 'POST',
         contentType : 'application/json',
         dataType : 'json',
         data : JSON.stringify(content),
-        success: suc,
+        success: onResponse,
         error: err || function(data) {
             kimchi.message.error(data.responseJSON.reason);
         }
