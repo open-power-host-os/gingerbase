@@ -67,8 +67,8 @@ class PackageUpdateModel(object):
         if package is None:
             return []
         dep_list.append(package)
-        deps = self.host_swupdate.getUpdate(package)['depends']
-        for pkg in set(deps).intersection(self.pkgs2update):
+        deps = self.host_swupdate.getPackageDeps(package)
+        for pkg in deps:
             if pkg in dep_list:
                 break
             self._resolve_dependencies(pkg, dep_list)
@@ -92,6 +92,17 @@ class PackageUpdateModel(object):
         taskid = AsyncTask('/plugins/gingerbase/host/packagesupdate/%s/upgrade'
                            % name, self.host_swupdate.doUpdate, pkgs_list).id
         return self.task.lookup(taskid)
+
+
+class PackageDepsModel(object):
+    def __init__(self, **kargs):
+        try:
+            self.host_swupdate = SoftwareUpdate()
+        except:
+            self.host_swupdate = None
+
+    def get_list(self, pkg):
+        return self.host_swupdate.getPackageDeps(pkg)
 
 
 class SwUpdateProgressModel(object):

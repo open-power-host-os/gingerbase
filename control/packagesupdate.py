@@ -19,7 +19,10 @@
 # License along with this library; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301 USA
 
+from wok import template
 from wok.control.base import AsyncResource, Collection, Resource
+from wok.control.base import SimpleCollection
+from wok.control.utils import get_class_name, model_fn
 
 
 PACKAGEUPDATE_ACTIVITY = {'POST': {'upgrade': "GGBPKGUPD0002L"}}
@@ -32,6 +35,12 @@ class PackagesUpdate(Collection):
         self.admin_methods = ['GET']
         self.resource = PackageUpdate
 
+    def get(self, filter_params):
+        res_list = []
+        get_list = getattr(self.model, model_fn(self, 'get_list'))
+        res_list = get_list(*self.model_args, **filter_params)
+        return template.render(get_class_name(self), res_list)
+
 
 class PackageUpdate(Resource):
     def __init__(self, model, id=None):
@@ -40,10 +49,21 @@ class PackageUpdate(Resource):
         self.admin_methods = ['GET', 'POST']
         self.upgrade = self.generate_action_handler_task('upgrade')
         self.log_map = PACKAGEUPDATE_ACTIVITY
+        self.deps = PackageDeps(self.model, id)
 
     @property
     def data(self):
         return self.info
+
+
+class PackageDeps(SimpleCollection):
+    def __init__(self, model, pkg=None):
+        super(PackageDeps, self).__init__(model)
+        self.role_key = 'updates'
+        self.admin_methods = ['GET']
+        self.pkg = pkg
+        self.resource_args = [self.pkg, ]
+        self.model_args = [self.pkg, ]
 
 
 class SwUpdateProgress(AsyncResource):

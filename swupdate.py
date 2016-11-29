@@ -32,7 +32,8 @@ from wok.basemodel import Singleton
 from wok.exception import NotFoundError, OperationFailed
 from wok.utils import run_command, wok_log
 
-from wok.plugins.gingerbase.yumparser import get_dnf_package_info
+from wok.plugins.gingerbase.yumparser import get_dnf_package_deps
+from wok.plugins.gingerbase.yumparser import get_yum_package_deps
 from wok.plugins.gingerbase.yumparser import get_yum_package_info
 from wok.plugins.gingerbase.yumparser import get_yum_packages_list_update
 
@@ -95,6 +96,19 @@ class SoftwareUpdate(object):
             if not package:
                 raise NotFoundError('GGBPKGUPD0002E', {'name': name})
             return package
+        except:
+            raise
+        finally:
+            swupdateLock.release()
+
+    def getPackageDeps(self, name):
+        """
+        """
+        self.getUpdate(name)
+
+        swupdateLock.acquire()
+        try:
+            return self._pkg_mnger.getPackageDeps(name)
         except:
             raise
         finally:
@@ -217,6 +231,9 @@ class GenericUpdate(object):
     def getPackageInfo(self, pkg_name):
         return
 
+    def getPackageDeps(self, pkg_name):
+        return
+
     def isRunning(self):
         return False
 
@@ -270,13 +287,18 @@ class YumUpdate(GenericUpdate):
         package = {'package_name': <string>,
                    'version': <string>,
                    'arch': <string>,
-                   'repository': <string>,
-                   'depends': <list>
+                   'repository': <string>
                   }
         """
         self.wait_pkg_manager_available()
         try:
             return get_yum_package_info(pkg_name)
+        except Exception, e:
+            raise NotFoundError('GGBPKGUPD0003E', {'err': str(e)})
+
+    def getPackageDeps(self, pkg_name):
+        try:
+            return get_yum_package_deps(pkg_name)
         except Exception, e:
             raise NotFoundError('GGBPKGUPD0003E', {'err': str(e)})
 
@@ -311,21 +333,10 @@ class DnfUpdate(YumUpdate):
                                         ["dnf", "-y", "update"])
         self.logfile = '/var/log/dnf.log'
 
-    def getPackageInfo(self, pkg_name):
-        """
-        Get package information. The return is a dictionary containg the
-        information about a package, in the format:
-
-        package = {'package_name': <string>,
-                   'version': <string>,
-                   'arch': <string>,
-                   'repository': <string>,
-                   'depends': <list>
-                  }
-        """
+    def getPackageDeps(self, pkg_name):
         self.wait_pkg_manager_available()
         try:
-            return get_dnf_package_info(pkg_name)
+            return get_dnf_package_deps(pkg_name)
         except Exception, e:
             raise NotFoundError('GGBPKGUPD0003E', {'err': str(e)})
 
@@ -374,7 +385,10 @@ class AptUpdate(GenericUpdate):
         except Exception, e:
             raise OperationFailed('GGBPKGUPD0003E', {'err': e.message})
 
-        return [pkg.shortname for pkg in pkgs]
+        return [{'package_name': pkg.shortname,
+                 'version': pkg.candidate.version,
+                 'arch': pkg._pkg.architecture,
+                 'repository': pkg.candidate.origins[0].label} for pkg in pkgs]
 
     def getPackageInfo(self, pkg_name):
         """
@@ -384,8 +398,7 @@ class AptUpdate(GenericUpdate):
         package = {'package_name': <string>,
                    'version': <string>,
                    'arch': <string>,
-                   'repository': <string>,
-                   'depends': <list>
+                   'repository': <string>
                   }
         """
         self.wait_pkg_manager_available()
@@ -407,10 +420,26 @@ class AptUpdate(GenericUpdate):
         package = {'package_name': pkg.shortname,
                    'version': pkg.candidate.version,
                    'arch': pkg._pkg.architecture,
-                   'repository': pkg.candidate.origins[0].label,
-                   'depends': list(set([d[0].name for d in
-                                       pkg.candidate.dependencies]))}
+                   'repository': pkg.candidate.origins[0].label}
         return package
+
+    def getPackageDeps(self, pkg_name):
+        self.wait_pkg_manager_available()
+
+        try:
+            self._apt_cache.open()
+            self._apt_cache.upgrade()
+            pkgs = self._apt_cache.get_changes()
+            self._apt_cache.close()
+        except Exception, e:
+            raise OperationFailed('GGBPKGUPD0006E', {'err': e.message})
+
+        pkg = next((x for x in pkgs if x.shortname == pkg_name), None)
+        if not pkg:
+            message = 'No package found'
+            raise NotFoundError('GGBPKGUPD0006E', {'err': message})
+
+        return list(set([d[0].name for d in pkg.candidate.dependencies]))
 
     def isRunning(self):
         """
@@ -457,7 +486,11 @@ class ZypperUpdate(GenericUpdate):
 
         for line in stdout.split('\n'):
             if line.startswith('v |'):
-                packages.append(line.split(' | ')[2].strip())
+                line = line.split(' | ')
+                pkg = {'package_name': line[2].strip(),
+                       'version': line[4].strip(), 'arch': line[5].strip(),
+                       'repository': line[1].strip()}
+                packages.append(pkg)
         return packages
 
     def getPackageInfo(self, pkg_name):
@@ -468,13 +501,12 @@ class ZypperUpdate(GenericUpdate):
         package = {'package_name': <string>,
                    'version': <string>,
                    'arch': <string>,
-                   'repository': <string>,
-                   'depends': <list>
+                   'repository': <string>
                   }
         """
         self.wait_pkg_manager_available()
 
-        cmd = ["zypper", "info", "--requires", pkg_name]
+        cmd = ["zypper", "info", pkg_name]
         (stdout, stderr, returncode) = run_command(cmd)
 
         if len(stderr) > 0:
@@ -483,12 +515,12 @@ class ZypperUpdate(GenericUpdate):
         # Zypper returns returncode == 0 and stderr <= 0, even if package is
         # not found in it's base. Need check the output of the command to parse
         # correctly.
-        stdout = stdout.split('\n')
-        message = 'package \'%s\' not found.' % pkg_name
+        message = '\'%s\' not found' % pkg_name
         if message in stdout:
             raise NotFoundError('GGBPKGUPD0006E', {'err': message})
 
         package = {}
+        stdout = stdout.split('\n')
         for (key, token) in (('repository', 'Repository:'),
                              ('version', 'Version:'),
                              ('arch', 'Arch:'),
@@ -498,21 +530,34 @@ class ZypperUpdate(GenericUpdate):
                     package[key] = line.split(': ')[1].strip()
                     break
 
-        # get the list of dependencies
-        pkg_dep = []
-        for line in stdout[stdout.index('Requires:')+1:len(stdout)-1]:
-            # scan for valid lines with package names
-            line = line.strip()
-            if '.so' in line:
-                continue
-            if line.startswith('/'):
-                continue
-            if "python(abi)" in line:
-                line = "python-base"
-            pkg_dep.append(line.split()[0])
-        pkg_dep = list(set(pkg_dep))
-        package['depends'] = pkg_dep
         return package
+
+    def getPackageDeps(self, pkg_name):
+        self.wait_pkg_manager_available()
+
+        cmd = ["zypper", "--non-interactive", "update", "--dry-run", pkg_name]
+        (stdout, stderr, returncode) = run_command(cmd)
+
+        if len(stderr) > 0:
+            raise OperationFailed('GGBPKGUPD0006E', {'err': stderr})
+
+        # Zypper returns returncode == 0 and stderr <= 0, even if package is
+        # not found in it's base. Need check the output of the command to parse
+        # correctly.
+        message = '\'%s\' not found' % pkg_name
+        if message in stdout:
+            raise NotFoundError('GGBPKGUPD0006E', {'err': message})
+
+        # get the list of dependencies
+        out = stdout.split('\n')
+        for line in out:
+            if line.startswith("The following"):
+                deps_index = out.index(line) + 1
+                break
+
+        deps = out[deps_index].split()
+        deps.remove(pkg_name)
+        return deps
 
     def isRunning(self):
         """

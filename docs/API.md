@@ -237,13 +237,22 @@ Contains the information for a specific package to be updated.
     * arch: The architecture of the package
     * version: The version of the package will be installed
     * repository: The repository name from where package will be downloaded
-    * depends: List of packages eligible to update that this depends on
 
 * **POST**: *See Host Package Update Actions*
 
 **Actions (POST):**
 
     * upgrade: Update/upgrade the package in the system
+
+### Collection: Package Update Dependencies
+
+**URI:** /plugins/gingerbase/host/packagesupdate/*:name*/deps
+
+Return a list of packages that need to be updated when upgrading *:name*
+
+**Methods:**
+
+* **GET**: List of packages that need to be updated when upgrading *:name*
 
 ### Collection: Host Repositories
 
