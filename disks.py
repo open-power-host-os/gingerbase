@@ -270,6 +270,7 @@ def fetch_disks_partitions():
             "MOUNTPOINT", "MAJ:MIN", "PKNAME"]
     devs = _get_lsblk_devs(keys)
     part_list = []
+    paths_dict = {}
     for dev in devs:
         dev_details = dev
         majmin = dev['maj:min']
@@ -278,6 +279,10 @@ def fetch_disks_partitions():
                                                  dev['fstype'],
                                                  dev['mountpoint'], majmin,
                                                  devs)
+        if dev_details['path'] in paths_dict.keys():
+            continue
+        paths_dict[dev_details['path']] = dev_details['name']
+
         part_list.append(dev_details)
     return part_list
 
@@ -356,3 +361,37 @@ def pvs(vgname=None):
                           'size': long(l[1]),
                           'uuid': l[2]},
                [fields.split() for fields in pvs])
+
+
+def pvs_with_vg_list():
+    """
+    lists all physical volumes in the system along with
+    associated volume group if any
+
+    """
+    outlist = []
+    outdict = {}
+    cmd = ['pvs',
+           '--units',
+           'b',
+           '--nosuffix',
+           '--noheading',
+           '--unbuffered',
+           '--options',
+           'pv_name,vg_name']
+
+    out, err, rc = run_command(cmd)
+    if rc != 0:
+        raise OperationFailed("GGBDISK00004E", {'err': err})
+
+    if not out:
+        return []
+    outlines = out.splitlines()[1:]
+    for line in outlines:
+        columns = line.split()
+        if len(columns) == 1:
+            outdict[columns[0]] = "N/A"
+        else:
+            outdict[columns[0]] = columns[1]
+        outlist.append(outdict)
+    return outlist
